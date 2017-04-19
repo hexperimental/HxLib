@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HxLib_Example' do
+  pod 'HxLib', :path => '../'
+
+  target 'HxLib_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
