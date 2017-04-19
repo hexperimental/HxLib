@@ -22,9 +22,14 @@ class ViewController: UIViewController {
         HxLocalStorage.defaultValue(1, forKey: "otherValue")
         
         
-        //Reading values  // opts
+        
         print("String >", HxLocalStorage.read("valueKey"))
-        print("Int >", HxLocalStorage.read("otherValue"))
+
+        
+        if let data = HxLocalStorage.read("otherValue") as? String {
+            print("Never1", data)
+        }
+        
         
         if let data = HxLocalStorage.read("otherValue") as? String {
             print("Never1", data)
@@ -51,7 +56,6 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTap() {
         HxLocalStorage.write(rememberText.text!, forKey: "valueKey")
-        HxLocalStorage.write(123, forKey: "otherValue")
     }
 
 }

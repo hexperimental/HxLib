@@ -24,23 +24,29 @@ public class HxLocalStorage: AnyObject {
     }
 
     
-    public class func write(_ key:String, data:AnyObject){
+    public class func erase(_ key:String){
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(nil, forKey: key)
+        userDefaults.synchronize()
+    }
+    
+    public class func write(_ data:AnyObject? = nil, forKey key:String){
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
     
-    
+
     public class func write(_ int:Int, forKey key:String) {
-        HxLocalStorage.write(key, data: int as AnyObject)
+        HxLocalStorage.write(int as AnyObject, forKey:key)
     }
     
     public class func write(_ string:String, forKey key:String) {
-        HxLocalStorage.write(key, data: string as AnyObject)
+        HxLocalStorage.write(string as AnyObject, forKey:key)
     }
     
     public class func write(_ bool:Bool, forKey key:String) {
-        HxLocalStorage.write(key, data: bool as AnyObject)
+        HxLocalStorage.write(bool as AnyObject, forKey:key)
     }
     
     
