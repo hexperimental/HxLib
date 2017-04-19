@@ -7,28 +7,67 @@
 //
 
 import Foundation
-class LocalStorage: NSObject {
+public class HxLocalStorage: AnyObject {
     
-    class func defaults(_ keyStr:String)->AnyObject {
-        let values:Dictionary = ["":""] as [String : Any]
-        return values[keyStr]! as AnyObject
+    
+    static var defaultValues:[String:AnyObject] = [String:AnyObject]()
+    
+    
+    public class func defaultValue(_ int:Int, forKey key:String) {
+        HxLocalStorage.defaultValues[key] = int as AnyObject
     }
+    public class func defaultValue(_ string:String, forKey key:String) {
+        HxLocalStorage.defaultValues[key] = string as AnyObject
+    }
+    public class func defaultValue(_ bool:Bool, forKey key:String) {
+        HxLocalStorage.defaultValues[key] = bool as AnyObject
+    }
+
     
-    
-    class func setSetting(_ key:String, data:AnyObject){
+    public class func write(_ key:String, data:AnyObject){
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
     
     
-    class func getSetting(_ keyStr:String)->AnyObject{
+    public class func write(_ int:Int, forKey key:String) {
+        HxLocalStorage.write(key, data: int as AnyObject)
+    }
+    
+    public class func write(_ string:String, forKey key:String) {
+        HxLocalStorage.write(key, data: string as AnyObject)
+    }
+    
+    public class func write(_ bool:Bool, forKey key:String) {
+        HxLocalStorage.write(key, data: bool as AnyObject)
+    }
+    
+    
+    public class func read(_ keyStr:String)->AnyObject? {
         let userDefaults = UserDefaults.standard
         if let data:AnyObject = userDefaults.object(forKey: keyStr) as AnyObject? {
-            return data
+                return data
         }
-        return LocalStorage.defaults(keyStr)
+        if let defaultValue:AnyObject = HxLocalStorage.defaultValues[keyStr] as AnyObject? {
+            return defaultValue
+        }
+        return nil
+    }
+    
+    
+    public class func stringValue(forKey str:String)->String {
+        return HxLocalStorage.read(str) as! String
+    }
+    
+    public class func intValue(forKey str:String)->Int {
+        return HxLocalStorage.read(str) as! Int
+    }
+    
+    public class func boolValue(forKey str:String)->Bool {
+        return HxLocalStorage.read(str) as! Bool
     }
     
     
 }
+

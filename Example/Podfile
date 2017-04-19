@@ -6,6 +6,5 @@ target 'HxLib_Example' do
   target 'HxLib_Tests' do
     inherit! :search_paths
 
-    
   end
 end
