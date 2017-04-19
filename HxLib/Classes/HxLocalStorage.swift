@@ -12,7 +12,9 @@ public class HxLocalStorage: AnyObject {
     
     static var defaultValues:[String:AnyObject] = [String:AnyObject]()
     
-    
+    public class func defaultValue(_ float:Float, forKey key:String) {
+        HxLocalStorage.defaultValues[key] = float as AnyObject
+    }
     public class func defaultValue(_ int:Int, forKey key:String) {
         HxLocalStorage.defaultValues[key] = int as AnyObject
     }
@@ -36,7 +38,11 @@ public class HxLocalStorage: AnyObject {
         userDefaults.synchronize()
     }
     
-
+    
+    public class func write(_ float:Float, forKey key:String) {
+        HxLocalStorage.write(float as AnyObject, forKey:key)
+    }
+    
     public class func write(_ int:Int, forKey key:String) {
         HxLocalStorage.write(int as AnyObject, forKey:key)
     }
