@@ -1,0 +1,16 @@
+PODS:
+  - HxLib (0.1.0)
+
+DEPENDENCIES:
+  - HxLib (from `../`)
+
+EXTERNAL SOURCES:
+  HxLib:
+    :path: ../
+
+SPEC CHECKSUMS:
+  HxLib: 64a6b7d4b0dbbdbd5fd37fff96a4b5f2c354c95f
+
+PODFILE CHECKSUM: 38b7d6636ab3963868b82fcadc14479e9a2ab4a7
+
+COCOAPODS: 1.2.1.beta.1

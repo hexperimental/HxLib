@@ -1,0 +1,6 @@
+framework module HxLib {
+  umbrella header "HxLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
