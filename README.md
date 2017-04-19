@@ -12,7 +12,7 @@ pod 'HxLib', :git => 'https://github.com/Hexperimental/HxLib'
 
 ## Goodies. 
 
-###HxLocalStorage
+### HxLocalStorage
 
 ```swift
 
