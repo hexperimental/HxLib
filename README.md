@@ -34,8 +34,6 @@ HxLocalStorage.write(nil, forKey: "someKey")
 
 //Setting values will work nice with String, Int, Float and Bool
 //to store any other value ( allowed by UserDefaults ) needs to be casted as AnyObject
-HxLocalStorage.defaultValue(Dictionary() as AnyObject, forKey: "someKey")
-HxLocalStorage.write(123.234 as AnyObject, forKey: "someKey")
 
 ```
 

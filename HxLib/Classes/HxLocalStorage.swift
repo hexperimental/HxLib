@@ -67,6 +67,9 @@ public class HxLocalStorage: AnyObject {
         return nil
     }
     
+    public class func string(forKey str:String)->String? {
+        return HxLocalStorage.read(str) as? String
+    }
     
     public class func stringValue(forKey str:String)->String {
         return HxLocalStorage.read(str) as! String
